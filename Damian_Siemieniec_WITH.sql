@@ -21,5 +21,5 @@ WITH TK (Name, OrderQty, UnitPrice) AS
 ( SELECT c.Name, OrderQty, UnitPrice FROM SalesLT.ProductCategory c
 JOIN  SalesLT.Product p ON p.ProductCategoryID = c.ProductCategoryID
 JOIN  SalesLT.SalesOrderDetail d ON d.ProductID = p.ProductID )
-SELECT Name AS 'Category' , CAST(SUM(OrderQty * UnitPrice)AS NUMERIC (12,2)) AS SalesValue FROM TK
+SELECT Name AS 'Category' , CAST(SUM(OrderQty * UnitPrice)AS NUMERIC (10,2)) AS SalesValue FROM TK
 GROUP BY Name
